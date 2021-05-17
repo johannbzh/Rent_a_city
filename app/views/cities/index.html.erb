@@ -23,18 +23,15 @@
   <% end %>
 </div>
 
+
 <div class="container mb-5">
   <div class="cards">
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2l0eXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60)">
-      NEW YORK
-    </div>
-
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1444084316824-dc26d6657664?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGNpdHl8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60)">
-      TOKYO
-    </div>
-
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1549643276-fdf2fab574f5?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDF8fGNpdHl8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60)">
-      MADRID
-    </div>
+    <% @cities.each do |city| %>
+      <%= link_to city_path(city), class:'text-decoration-none' do  %>
+        <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= city.photo.attached? ? cl_image_path(city.photo.key) : asset_path('city_background.jpg') %>)">
+          <%= city.name %>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
