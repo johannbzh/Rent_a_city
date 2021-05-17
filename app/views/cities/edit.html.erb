@@ -1,0 +1,9 @@
+<h1>Edit your city</h1>
+
+<%= simple_form_for @city do |f| %>
+  <%= f.input :name %>
+  <%= f.input :country, as: :string  %>
+  <%= f.input :price %>
+  <%= f.input :main_monument %>
+  <%= f.submit %>
+<% end %>
