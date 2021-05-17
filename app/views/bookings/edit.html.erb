@@ -1,0 +1,6 @@
+<h1>Page edit for booking</h1>
+<%= simple_form_for [@city, @booking] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.submit %>
+<% end %>
