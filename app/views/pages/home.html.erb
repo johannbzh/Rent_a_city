@@ -1,2 +1,35 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: url(<%= asset_path('banner_image.jpg') %>);">
+  <div class="container">
+    <h1>Rent your city and become a <strong>mayor</strong>!</h1>
+    <p>Change your life for a few days</p>
+    <%= link_to "Discover our cities", cities_path, class: "btn btn-flat" %>
+  </div>
+</div>
+
+<div class="container text-center mt-3">
+  <h1>It's possible with Rent a City</h1>
+</div>
+
+
+<div class="container mt-3">
+  <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+    <div class="search-form-control form-group">
+      <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+      <button name="button" type="submit" class="btn btn-flat">
+        <i class="fas fa-search"></i> Search
+      </button>
+    </div>
+  <% end %>
+</div>
+
+<div class="container mb-5">
+  <div class="cards">
+    <% @cities.each do |city| %>
+        <%= link_to city_path(city), class:'text-decoration-none' do %>
+          <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= city.photos.attached? ? cl_image_path(city.photos.first.key) : asset_path('city_background.jpg') %>)">
+            <%= city.name.upcase %>
+          </div>
+        <% end %>
+    <% end %>
+  </div>
+</div>
