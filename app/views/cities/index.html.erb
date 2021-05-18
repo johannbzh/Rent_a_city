@@ -28,7 +28,7 @@
   <div class="cards">
     <% @cities.each do |city| %>
       <%= link_to city_path(city), class:'text-decoration-none' do  %>
-        <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= city.photo.attached? ? cl_image_path(city.photo.key, :cloud_name => 'drjoocubk') : asset_path('city_background.jpg') %>)">
+        <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= city.photos.attached? ? cl_image_path(city.photos.first.key) : asset_path('city_background.jpg') %>)">
           <%= city.name %>
         </div>
       <% end %>

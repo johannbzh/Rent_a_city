@@ -5,5 +5,5 @@ class City < ApplicationRecord
   validates :country, presence: true
   validates :price, numericality: { only_integer: true }
   validates :main_monument, presence: true
-  has_one_attached :photo
+  has_many_attached :photos
 end
