@@ -1,11 +1,26 @@
-<h1>Hello</h1>
-<div class="container">
-  <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="#">My bookings</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">My cities</a>
-    </li>
-  </ul>
+
+
+<div class="container-all">
+  <div class="container-onglets">
+    <div class="onglets active-tab" data-anim="1">My cities</div>
+    <div class="onglets" data-anim="2" >My bookings</div>
+  </div>
+
+  <div class="content active-content" data-anim ="1">
+    <h3>My cities</h3>
+    <hr>
+    <% current_user.cities.each do |city| %>
+      <p><%= city.name %></p>
+
+    <% end %>
+  </div>
+
+
+  <div class="content" data-anim ="2">
+    <h3>My bookings</h3>
+    <hr>
+    <p>blabla</p>
+  </div>
+
 </div>
+
