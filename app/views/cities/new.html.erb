@@ -1,10 +1,15 @@
-<h1>Page New</h1>
+<h1>Create a new city</h1>
 
-<%= simple_form_for @city do |f| %>
-  <%= f.input :name %>
-  <%= f.input :country, as: :string  %>
-  <%= f.input :price %>
-  <%= f.input :main_monument %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit %>
-<% end %>
+<div class="container mt-3 form-city" >
+  <%= simple_form_for @city do |f| %>
+    <%= f.input :name %>
+    <%= f.input :country, as: :string  %>
+    <%= f.input :price %>
+    <%= f.input :main_monument %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <div class="d-flex justify-content-between">
+      <%= f.submit %>
+      <%= link_to "Back", cities_path, class: "btn-back" %>
+    </div>
+  <% end %>
+</div>
