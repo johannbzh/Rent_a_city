@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: %i[show edit update destroy]
 
   def index
-    @bookings = Booking.all
+    @bookings = policy_scope(Booking)
   end
 
   def show
@@ -10,11 +10,13 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    authorize @booking
     @city = City.find(params[:city_id])
   end
 
   def create
     @booking = Booking.new(booking_params)
+    authorize @booking
     @booking.user = current_user
     @booking.city = City.find(params[:city_id])
     @booking.total_price = @booking.city.price * (@booking[:end_date] - @booking[:start_date]).to_i
@@ -44,6 +46,7 @@ class BookingsController < ApplicationController
 
   def set_booking
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def booking_params
