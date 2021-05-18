@@ -1,1 +1,40 @@
 // Specific CSS for your home-page
+.citation-right {
+  margin-left: 60px;
+}
+
+.customers {
+  display: flex;
+  align-items: center;
+}
+
+.citation-left {
+  margin-right: 60px;
+}
+
+.fa-quote-left {
+  font-size: 28px;
+  color: #dc326b;
+}
+
+.banner-end {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 100px 0;
+}
+
+.banner-image h1 {
+  margin: 0;
+  text-align: left;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 36px;
+  font-weight: bold;
+}
