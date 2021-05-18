@@ -3,6 +3,8 @@ class CitiesController < ApplicationController
 
   def index
     @cities = City.all
+    @search = params[:query]
+    @cities = City.where(["lower(name) = ? OR lower(country) = ?", @search.downcase, @search.downcase]) if @search.present?
   end
 
   def show

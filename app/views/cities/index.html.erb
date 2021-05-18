@@ -1,37 +1,30 @@
-
-<div class="banner" style="background-image: url(<%= asset_path('banner_image.jpg') %>);">
+<div class="banner" style="background-image: url(<%= asset_path('city_background.jpg') %>);">
   <div class="container">
-    <h1>Rent your city and become a <strong>mayor</strong>!</h1>
-    <p>Change your life for a few days</p>
-    <%= link_to "Discover our cities", cities_path, class: "btn btn-flat" %>
+    <h1>Choose your city here mayor!</h1>
   </div>
 </div>
-
-<div class="container text-center mt-3">
-  <h1>It's possible with Rent a City</h1>
-</div>
-
-
-<div class="container mt-3">
-  <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-    <div class="search-form-control form-group">
-      <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-      <button name="button" type="submit" class="btn btn-flat">
-        <i class="fas fa-search"></i> Search
-      </button>
-    </div>
+<div class="search-form-control form-group mt-5">
+  <%= form_tag cities_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a city"
+    %>
+    <%= submit_tag "Search", class: "btn btn-flat" %>
   <% end %>
 </div>
 
-
-<div class="container mb-5">
-  <div class="cards">
-    <% @cities.each do |city| %>
-      <%= link_to city_path(city), class:'text-decoration-none' do  %>
-        <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= city.photos.attached? ? cl_image_path(city.photos.first.key) : asset_path('city_background.jpg') %>)">
-          <%= city.name %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+<div class="container cards-city mt-5 mb-5">
+  <% @cities.each do |city| %>
+    <div class="card-product m-3">
+      <%= cl_image_tag city.photos.first.key %>
+      <div class="card-product-infos">
+        <h2><%= city.name %></h2>
+        <p><i class="far fa-flag mr-2"></i><%= city.country %><i class="fas fa-euro-sign mr-2 ml-2"></i><%= city.price %></p>
+      </div>
+      <div class="reserve-city">
+        <%= link_to "See more details", city_path(city), class:"btn-flat" %>
+      </div>
+    </div>
+  <% end %>
 </div>
