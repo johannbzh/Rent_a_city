@@ -3,14 +3,14 @@
   background-position: center;
   background-repeat: no-repeat;
   padding: 150px 0;
-  // position: absolute;
 }
 
 .banner h1 {
   margin: 0;
+  text-align: left;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
+  font-size: 36px;
   font-weight: bold;
 }
 
@@ -19,4 +19,8 @@
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+h2 {
+  color:#dc326b;
 }

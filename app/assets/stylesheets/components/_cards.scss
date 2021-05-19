@@ -68,7 +68,56 @@
   object-fit: cover;
 }
 
-.card-my-cities h2 {
+.card-product-show {
+  text-align: center;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 9px;
+  margin: 24px 30px 0px 0px;
+}
+
+.card-infos-show {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-left: 50px;
+  margin-top: 30px;
+}
+
+.photo-product-size img {
+  object-fit: cover;
+  width: 85%;
+}
+
+.booking-calendar {
+  margin: 25px 30px 0px 0px;
+}
+
+.final-price {
+  margin-top: 10px;
+}
+
+.card-product {
+  padding: 0px;
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-product h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
@@ -80,7 +129,6 @@
   margin: 0;
 }
 
-
 .card-my-cities .card-my-cities-infos {
   padding: 16px;
   display: flex;
@@ -89,9 +137,31 @@
   position: relative;
 }
 
-.card-my-cities-infos .card-my-cities-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
+// .card-my-cities-infos .card-my-cities-user {
+//   position: absolute;
+//   right: 16px;
+//   top: -20px;
+//   width: 40px;
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+.cards-city {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.reserve-city {
+  margin-left: auto;
+  margin-right: 20px;
 }

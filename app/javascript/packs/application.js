@@ -23,10 +23,13 @@ import "bootstrap";
 import { dynamicTabs } from '../components/onglets';
 
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+
+import { initFlatpickr } from '../plugins/flatpickr';
 
 document.addEventListener('turbolinks:load', () => {
   dynamicTabs();
+  // Call your functions here, e.g:
+  initFlatpickr();
 });
 
 

@@ -3,9 +3,12 @@ class CitiesController < ApplicationController
 
   def index
     @cities = policy_scope(City)
+    @search = params[:query]
+    @cities = City.where(["lower(name) = ? OR lower(country) = ?", @search.downcase, @search.downcase]) if @search.present?
   end
 
   def show
+    @booking = Booking.new
   end
 
   def new
