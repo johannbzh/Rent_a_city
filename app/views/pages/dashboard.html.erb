@@ -1,6 +1,6 @@
 <div class="banner" style="background-image: url(<%= asset_path('dashboard.jpg') %>);">
   <div class="container">
-    <h1>Welcome to your dashboard</h1>
+    <h1 class="text-center">Welcome to your dashboard</h1>
   </div>
 </div>
 
@@ -18,7 +18,7 @@
     <% end %>
     <% current_user.cities.each do |city| %>
       <div class="card-my-cities">
-        <%= city.photos.attached? ? cl_image_tag(city.photos.first.key) : asset_path('city_background.jpg') %>
+        <%= city.photos.attached? ? cl_image_tag(city.photos.first.key) : image_tag('city_background.jpg') %>
         <div class="card-my-cities-infos">
           <div>
             <h2><%= city.name %></h2>
@@ -26,7 +26,7 @@
             <small><%= link_to 'Edit', edit_city_path(city), class:'text-muted' %></small>
             <small><%= link_to "Delete", city_path(city), method: :delete, data: {confirm: "Are you sure?"}, class: 'text-danger'  %></small>
           </div>
-          <h2 class="card-my-cities-pricing">€ <%= city.price %></h2>
+          <h2 class="card-my-cities-pricing"><%= city.price %> €/day</h2>
         </div>
       </div>
     <% end %>

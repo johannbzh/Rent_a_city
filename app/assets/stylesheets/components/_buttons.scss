@@ -9,11 +9,9 @@
 .btn-flat:hover {
   background: #c72d61;
   color: white;
-}
-
-a.btn-flat {
   text-decoration: none;
 }
+
 
 .btn-nav {
   color: #4A4A4A;
@@ -28,4 +26,13 @@ a.btn-flat {
 
 .btn-nav:hover {
   opacity: 1;
+}
+
+.upload-photo {
+  border: 1px solid #d3d3d3;
+  padding: 16px 24px;
+  cursor: pointer;
+  font-weight: 500;
+  background: white;
+  border-radius: 2px;
 }
