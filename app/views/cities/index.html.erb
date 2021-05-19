@@ -17,7 +17,7 @@
 <div class="container cards-city mt-5 mb-5">
   <% @cities.each do |city| %>
     <div class="card-product m-3">
-      <%= cl_image_tag city.photos.first.key %>
+      <%= city.photos.attached? ? cl_image_tag(city.photos.first.key) : image_tag('city_background.jpg') %>
       <div class="card-product-infos">
         <h2><%= city.name %></h2>
         <p><i class="far fa-flag mr-2"></i><%= city.country %><i class="fas fa-euro-sign mr-2 ml-2"></i><%= city.price %></p>
