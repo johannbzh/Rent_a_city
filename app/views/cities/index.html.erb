@@ -1,2 +1,30 @@
+<div class="banner" style="background-image: url(<%= asset_path('city_background.jpg') %>);">
+  <div class="container">
+    <h1>Choose your city here mayor!</h1>
+  </div>
+</div>
+<div class="search-form-control form-group mt-5">
+  <%= form_tag cities_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a city"
+    %>
+    <%= submit_tag "Search", class: "btn btn-flat" %>
+  <% end %>
+</div>
 
-<h1>Index Page TO DO</h1>
+<div class="container cards-city mt-5 mb-5">
+  <% @cities.each do |city| %>
+    <div class="card-product m-3">
+      <%= cl_image_tag city.photos.first.key %>
+      <div class="card-product-infos">
+        <h2><%= city.name %></h2>
+        <p><i class="far fa-flag mr-2"></i><%= city.country %><i class="fas fa-euro-sign mr-2 ml-2"></i><%= city.price %></p>
+      </div>
+      <div class="reserve-city">
+        <%= link_to "See more details", city_path(city), class:"btn-flat" %>
+      </div>
+    </div>
+  <% end %>
+</div>

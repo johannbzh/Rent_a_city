@@ -1,14 +1,14 @@
 
 <div class="container d-flex">
 
-  <div class="card-product col-8">
+  <div class="card-product-show col-8">
     <div>
       <h1><%= @city.name %></h1>
     </div>
     <div class ="photo-product-size">
       <%= cl_image_tag @city.photos.first.key, height: 300, width: 400, crop: :fill %>
     </div>
-    <div class="card-infos">
+    <div class="card-infos-show">
       <p><strong>Country: </strong><%= @city.country %></p>
       <p><strong>Main monument to visit: </strong><%= @city.main_monument %></p>
       <p><strong>Price per day: </strong><%= @city.price %>€</p>

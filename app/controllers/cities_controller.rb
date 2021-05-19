@@ -2,7 +2,9 @@ class CitiesController < ApplicationController
   before_action :set_city, only: %i[show edit update destroy]
 
   def index
-    @cities = City.all
+    @cities = policy_scope(City)
+    @search = params[:query]
+    @cities = City.where(["lower(name) = ? OR lower(country) = ?", @search.downcase, @search.downcase]) if @search.present?
   end
 
   def show
@@ -11,10 +13,12 @@ class CitiesController < ApplicationController
 
   def new
     @city = City.new
+    authorize @city
   end
 
   def create
     @city = City.new(city_params)
+    authorize @city
     @user = current_user
     @city.user = @user
     if @city.save
@@ -45,5 +49,6 @@ class CitiesController < ApplicationController
 
   def set_city
     @city = City.find(params[:id])
+    authorize @city
   end
 end

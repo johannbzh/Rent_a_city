@@ -7,11 +7,10 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "flatpickr/dist/flatpickr";
+@import "flatpickr/dist/themes/airbnb";
 
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import "city/new";
-@import "flatpickr/dist/themes/airbnb";
+
