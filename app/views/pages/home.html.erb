@@ -12,7 +12,7 @@
 
 <div class="container mb-5">
   <div class="cards">
-    <% @cities.each do |city| %>
+    <% @cities[-3..-1].each do |city| %>
         <%= link_to city_path(city), class:'text-decoration-none' do %>
           <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= city.photos.attached? ? cl_image_path(city.photos.first.key) : asset_path('city_background.jpg') %>)">
             <%= city.name.upcase %>
@@ -42,6 +42,6 @@
 <div class="banner-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1610819610413-3e42356fc150?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);">
   <div class="container banner-end">
     <h1>Wanna discover all the cities for rent?</h1>
-    <%= link_to "Sign up now", new_user_registration_path, class:"btn btn-flat mt-5" %>
+    <%= link_to "Discover our cities", cities_path, class:"btn btn-flat mt-5" %>
   </div>
 </div>
