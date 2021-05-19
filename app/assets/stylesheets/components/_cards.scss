@@ -54,6 +54,37 @@
   }
 }
 
+.card-product-show {
+  text-align: center;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 9px;
+  margin: 24px 30px 0px 0px;
+}
+.card-infos-show {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-left: 50px;
+  margin-top: 30px;
+}
+
+.photo-product-size img {
+  object-fit: cover;
+  width: 85%;
+}
+
+.booking-calendar {
+  margin: 25px 30px 0px 0px;
+}
+
+.final-price {
+  margin-top: 10px;
+}
+
 .card-product {
   padding: 0px;
   overflow: hidden;
