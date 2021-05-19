@@ -4,4 +4,7 @@ class PagesController < ApplicationController
   def home
     @cities = City.all
   end
+
+  def dashboard
+  end
 end

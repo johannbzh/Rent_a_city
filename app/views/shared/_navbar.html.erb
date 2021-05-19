@@ -15,8 +15,11 @@
         <li class="nav-item active btn-nav">
           <%= link_to "Add a city", new_city_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Log out", destroy_user_session_path, :method => :delete, data: { confirm: 'Are you sure you want to sign out?' }, class: "dropdown-item sign-out" %>
+        <li class="nav-item active">
+          <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to "Log out", destroy_user_session_path, :method => :delete, data: { confirm: 'Are you sure you want to sign out?' }, class: "nav-link sign-out" %>
         </li>
       <% else %>
         <li class="nav-item">
@@ -28,13 +31,7 @@
       <% end %>
 
       <li class="nav-item dropdown">
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <% if user_signed_in? %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "My cities", cities_path, class: "dropdown-item" %>
-            <%= link_to "My bookings", bookings_path, class: "dropdown-item" %>
-          </div>
-        <% end %>
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", 'aria-haspopup': true, 'aria-expanded': false %>
       </li>
     </ul>
   </div>

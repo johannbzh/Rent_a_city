@@ -1,0 +1,48 @@
+<div class="banner" style="background-image: url(<%= asset_path('dashboard.jpg') %>);">
+  <div class="container">
+    <h1>Welcome to your dashboard</h1>
+  </div>
+</div>
+
+<div class="container-all">
+  <div class="container-onglets">
+    <div class="onglets active-tab" data-anim="1">My cities</div>
+    <div class="onglets" data-anim="2" >My bookings</div>
+  </div>
+
+  <div class="content active-content" data-anim ="1">
+    <% if current_user.cities.size > 1 %>
+      <h3 class="mt-5">I have <%= current_user.cities.size %> cities for rent</h3>
+    <% else %>
+      <h3 class="mt-5">I have <%= current_user.cities.size %> city for rent</h3>
+    <% end %>
+    <% current_user.cities.each do |city| %>
+      <div class="card-my-cities">
+        <%= city.photos.attached? ? cl_image_tag(city.photos.first.key) : asset_path('city_background.jpg') %>
+        <div class="card-my-cities-infos">
+          <div>
+            <h2><%= city.name %></h2>
+            <p>Own the <%= city.main_monument %> for days!</p>
+            <small><%= link_to 'Edit', edit_city_path(city), class:'text-muted' %></small>
+            <small><%= link_to "Delete", city_path(city), method: :delete, data: {confirm: "Are you sure?"}, class: 'text-danger'  %></small>
+          </div>
+          <h2 class="card-my-cities-pricing">€ <%= city.price %></h2>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="content" data-anim ="2">
+    <% if current_user.bookings.size > 1 %>
+      <h3>I have <%= current_user.bookings.size %> bookings coming soon</h3>
+    <% else %>
+      <h3>I have <%= current_user.bookings.size %> booking coming soon</h3>
+    <% end %>
+    <hr>
+  </div>
+
+</div>
+
+
+
+
