@@ -35,13 +35,13 @@ class CitiesController < ApplicationController
 
   def destroy
     @city.destroy
-    redirect_to cities_path
+    redirect_to dashboard_path
   end
 
   private
 
   def city_params
-    params.require(:city).permit(:name, :country, :price, :main_monument, :user_id, :photos)
+    params.require(:city).permit(:name, :country, :price, :main_monument, :user_id, photos: [])
   end
 
   def set_city
