@@ -25,11 +25,13 @@ import { dynamicTabs } from '../components/onglets';
 // Internal imports, e.g:
 
 import { initFlatpickr } from '../plugins/flatpickr';
+import { previewImageOnFileSelect } from '../components/photo_preview';
 
 document.addEventListener('turbolinks:load', () => {
   dynamicTabs();
   // Call your functions here, e.g:
   initFlatpickr();
+  previewImageOnFileSelect();
 });
 
 
