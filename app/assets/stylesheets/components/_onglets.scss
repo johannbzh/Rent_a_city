@@ -35,7 +35,6 @@
 .content {
   height: 70%;
   width: 100%;
-  opacity: 0;
 }
 
 .content h3 {
@@ -58,6 +57,7 @@
 
 .active-content {
   animation: fade 0.5s forwards;
+  display: block;
 }
 
 @keyframes fade {
