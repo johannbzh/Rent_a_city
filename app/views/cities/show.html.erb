@@ -6,7 +6,7 @@
       <h1><%= @city.name %></h1>
     </div>
     <div class ="photo-product-size">
-      <%= cl_image_tag @city.photos.first.key, height: 300, width: 400, crop: :fill %>
+      <%= @city.photos.attached? ? cl_image_tag(@city.photos.first.key) : image_tag('city_background.jpg') %>
     </div>
     <div class="card-infos-show">
       <p><strong>Country: </strong><%= @city.country %></p>
