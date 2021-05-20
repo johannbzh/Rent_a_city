@@ -32,13 +32,25 @@
     <% end %>
   </div>
 
-  <div class="content inactive-content" data-anim ="2">
+  <div class="content inactive-content pb-3" data-anim ="2">
     <% if current_user.bookings.size > 1 %>
-      <h3>I have <%= current_user.bookings.size %> bookings coming soon</h3>
+      <h3 class="mt-5">I have <%= current_user.bookings.size %> bookings coming soon</h3>
     <% else %>
-      <h3>I have <%= current_user.bookings.size %> booking coming soon</h3>
+      <h3 class="mt-5">I have <%= current_user.bookings.size %> booking coming soon</h3>
     <% end %>
-    <hr>
+    <% current_user.bookings.each do |booking| %>
+      <div class="card-my-cities">
+        <%= booking.city.photos.attached? ? cl_image_tag(booking.city.photos.first.key) : image_tag('city_background.jpg') %>
+        <div class="card-my-cities-infos">
+          <div>
+            <h2><%= booking.city.name %></h2>
+            <p>Own the <%= booking.city.main_monument %> for days!</p>
+          </div>
+          <h2 class="card-my-cities-pricing"><%= booking.total_price %> €</h2>
+        </div>
+      </div>
+    <% end %>
+
   </div>
 
 </div>
