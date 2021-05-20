@@ -5,4 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :cities
   has_many :bookings
+  has_many :requests, through: :cities, source: :bookings
+
+  def ordered_requests
+    requests.order('created_at DESC')
+  end
 end

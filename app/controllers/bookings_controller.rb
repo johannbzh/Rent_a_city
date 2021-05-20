@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[show edit update destroy]
+  before_action :set_booking, only: %i[show edit update destroy accept decline]
 
   def index
     @bookings = policy_scope(Booking)
@@ -42,6 +42,18 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
+  def accept
+    @booking.statut = "Accepted"
+    @booking.save
+    redirect_to dashboard_path
+  end
+
+  def decline
+    @booking.statut = "Declined"
+    @booking.save
+    redirect_to dashboard_path
+  end
+
   private
 
   def set_booking
@@ -50,6 +62,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:user_id, :city_id, :start_date, :end_date, :total_price)
+    params.require(:booking).permit(:user_id, :city_id, :start_date, :end_date, :total_price, :statut)
   end
 end

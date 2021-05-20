@@ -1,13 +1,10 @@
 
-
 .container-all{
   margin: auto;
   margin-top: 60px;
-  width: 800px;
+  width: 900px;
   border-radius: 2px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-  background: white;
-  border-radius: 3px;
+
 }
 
 .container-onglets {
@@ -28,18 +25,19 @@
   height: 50px;
 }
 
-.onglets:not(:nth-child(2)) {
+.onglets:not(:nth-child(3)) {
   border-right: 1px solid rgba(196, 194, 194, 0.883);
 }
 
 .content {
   height: 70%;
   width: 100%;
+
 }
 
 .content h3 {
-  padding-left: 50px;
-  margin-top: 10px;
+
+  margin-top: 1rem !important;
 }
 
 .content p {
@@ -56,18 +54,34 @@
 }
 
 .active-content {
-  animation: fade 0.5s forwards;
+  animation: fade 0.3s forwards;
   display: block;
 }
+
 .inactive-content {
   display: none;
 }
 
-@keyframes fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.fa-check-circle {
+  font-size: 14px;
+  margin-left: 6px;
 }
+
+.fa-times-circle{
+  font-size: 14px;
+  margin-left: 6px;
+}
+
+.fa-clock {
+  font-size: 14px;
+  margin-left: 6px;
+}
+
+// @keyframes fade {
+//   from {
+//     opacity: 0;
+//   }
+//   to {
+//     opacity: 1;
+//   }
+// }
