@@ -27,6 +27,22 @@
 </div>
 
 <div>
+  <% if policy(@city).add_review? %>
+    <div class="form-login">
+      <h1>Submit a review for that city</h1>
+        <%= simple_form_for [@city, @review] do |f| %>
+          <%= f.input :content %>
+          <%= f.input :rating %>
+          <div class="form-actions">
+            <%= f.button :submit, "Submit review", class: "btn btn-flat mt-3" %>
+            <%= link_to "Back", dashboard_path, class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+  <% end %>
+</div>
+
+<div>
   <ul>
     <% @reviews.each do |review| %>
       <li><%= "#{review.user.first_name} #{review.user.last_name}" %></li>

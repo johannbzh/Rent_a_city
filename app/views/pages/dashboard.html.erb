@@ -38,7 +38,9 @@
     <% else %>
       <h3>I have <%= current_user.bookings.size %> booking coming soon</h3>
     <% end %>
+    <% current_user.bookings.each do |booking| %>
+      <%= link_to "Add a review", city_path(booking.city)  %>
+    <% end %>
     <hr>
-<%= link_to "Add a review", new_city_review_path(@city)  %>
   </div>
 </div>

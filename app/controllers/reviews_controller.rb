@@ -1,11 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: %i[show edit update destroy]
 
-  def new
-    @review = Review.new
-    @city = City.find(params[:city_id])
-  end
-
   def create
     @review = Review.new(review_params)
     @review.city = City.find(params[:city_id])

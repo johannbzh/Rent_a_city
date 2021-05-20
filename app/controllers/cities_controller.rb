@@ -11,6 +11,7 @@ class CitiesController < ApplicationController
     @city = City.find(params[:id])
     @booking = Booking.new
     @reviews = @city.reviews
+    @review = Review.new
   end
 
   def new

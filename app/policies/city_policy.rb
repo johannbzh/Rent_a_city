@@ -32,4 +32,12 @@ class CityPolicy < ApplicationPolicy
   def destroy?
     edit?
   end
+
+  def add_review?
+    my_booked_cities = []
+    user.bookings.each do |booking|
+      my_booked_cities << booking.city
+    end
+    my_booked_cities.include?(record)
+  end
 end
