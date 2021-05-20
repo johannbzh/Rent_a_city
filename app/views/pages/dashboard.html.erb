@@ -10,7 +10,7 @@
     <div class="onglets" data-anim="2" >My bookings</div>
   </div>
 
-  <div class="content active-content" data-anim ="1">
+  <div class="content active-content pb-3" data-anim ="1">
     <% if current_user.cities.size > 1 %>
       <h3 class="mt-5">I have <%= current_user.cities.size %> cities for rent</h3>
     <% else %>
@@ -32,7 +32,7 @@
     <% end %>
   </div>
 
-  <div class="content" data-anim ="2">
+  <div class="content inactive-content" data-anim ="2">
     <% if current_user.bookings.size > 1 %>
       <h3>I have <%= current_user.bookings.size %> bookings coming soon</h3>
     <% else %>

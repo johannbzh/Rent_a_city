@@ -59,6 +59,9 @@
   animation: fade 0.5s forwards;
   display: block;
 }
+.inactive-content {
+  display: none;
+}
 
 @keyframes fade {
   from {
