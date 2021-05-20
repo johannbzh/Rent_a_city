@@ -22,7 +22,7 @@
 
   <% unless policy(@city).edit? %>
     <div class="booking-calendar col-4 sticky-top">
-      <h3 class="heading">Wanna this city?</h3>
+      <h3 class="heading">Wanna book this city?</h3>
       <div class="form-wrapper">
         <%= simple_form_for [ @city, @booking ] do |f| %>
           <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
