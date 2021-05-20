@@ -6,6 +6,7 @@ class ReviewsController < ApplicationController
     @review.city = City.find(params[:city_id])
     @review.user = current_user
     authorize @review
+    @review.save
   end
 
   def edit

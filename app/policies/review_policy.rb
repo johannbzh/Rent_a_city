@@ -5,17 +5,16 @@ class ReviewPolicy < ApplicationPolicy
     end
 
     def create?
-      record.booking.user == user
+      record.city.user != user
     end
 
     def update?
-      record.booking.user == user
+      record.city.user != user
     end
 
     def destroy?
-      record.booking.user == user
+      record.city.user != user
     end
-
 
   end
 end
