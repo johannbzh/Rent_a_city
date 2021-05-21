@@ -46,7 +46,7 @@
 
   <% if policy(@city).add_review? %>
     <div class="form-review">
-      <div class ="user_interested">Add a review</div>
+      <div class ="user_interested ">Add a review</div>
         <%= simple_form_for [@city, @review] do |f| %>
           <%= f.input :content %>
           <%= f.input :rating %>
