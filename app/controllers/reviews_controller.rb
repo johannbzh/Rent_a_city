@@ -7,6 +7,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     authorize @review
     @review.save
+    redirect_to city_path(@review.city)
   end
 
   def edit

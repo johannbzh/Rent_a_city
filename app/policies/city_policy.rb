@@ -34,10 +34,8 @@ class CityPolicy < ApplicationPolicy
   end
 
   def add_review?
-    my_booked_cities = []
-    user.bookings.each do |booking|
-      my_booked_cities << booking.city
-    end
-    my_booked_cities.include?(record)
+    return false if Review.find_by(user: user, city: record)
+
+    user.booked_cities.include?(record)
   end
 end
