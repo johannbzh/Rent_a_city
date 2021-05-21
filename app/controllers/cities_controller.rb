@@ -8,7 +8,10 @@ class CitiesController < ApplicationController
   end
 
   def show
+    @city = City.find(params[:id])
     @booking = Booking.new
+    @reviews = @city.reviews
+    @review = Review.new
   end
 
   def new
@@ -38,7 +41,7 @@ class CitiesController < ApplicationController
 
   def destroy
     @city.destroy
-    redirect_to dashboard_path
+    redirect_to cities_path
   end
 
   private

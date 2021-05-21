@@ -33,3 +33,32 @@
     </div>
   <% end %>
 </div>
+
+<div class = "review_box">
+<div>
+  <ul class ="display-reviews">
+    <% @reviews.each do |review| %>
+      <li><%= "#{review.user.first_name} #{review.user.last_name}" %></li>
+      <li><%= review.content %></li>
+      <li><%= review.rating %></li>
+    <% end %>
+  </ul>
+
+  <% if policy(@city).add_review? %>
+    <div class="form-review">
+      <h2>Let a review</h2>
+        <%= simple_form_for [@city, @review] do |f| %>
+          <%= f.input :content %>
+          <%= f.input :rating %>
+          <div class="form-actions">
+            <%= f.button :submit, "Submit review", class: "btn btn-flat mt-3" %>
+            <%= link_to "Back", dashboard_path, class: "btn btn-outline-primary mt-3" %>
+          </div>
+        <% end %>
+      </div>
+  <% end %>
+  </div>
+</div>
+
+
+

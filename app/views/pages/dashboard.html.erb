@@ -37,6 +37,19 @@
     </div>
   </div>
 
+
+  <div class="content" data-anim ="2">
+    <% if current_user.bookings.size > 1 %>
+      <h3>I have <%= current_user.bookings.size %> bookings coming soon</h3>
+    <% else %>
+      <h3>I have <%= current_user.bookings.size %> booking coming soon</h3>
+    <% end %>
+    <% current_user.bookings.each do |booking| %>
+      <%= link_to "Add a review", city_path(booking.city)  %>
+    <% end %>
+    <hr>
+  </div>
+
   <div class="content inactive-content pb-3" data-anim ="2">
     <div class="content-title">
       <% if current_user.bookings.size > 1 %>
@@ -100,8 +113,5 @@
       </div>
       <% end %>
   </div>
+
 </div>
-
-
-
-
