@@ -16,7 +16,7 @@
       <%= @city.photos.attached? ? cl_image_tag(@city.photos.first.key) : image_tag('city_background.jpg') %>
     </div>
     <div class="mt-4 pr-5">
-      <p><i class="far fa-flag"></i><strong> Country: </strong><%= @city.country %>  |  <i class="fas fa-landmark"></i><strong> Main monument: </strong><%= @city.main_monument %>  |  <i class="fas fa-euro-sign"></i><strong> Price per day: </strong><%= @city.price %>€</p>
+      <p><i class="far fa-flag icon"></i><strong> Country: </strong><%= @city.country %>  |  <i class="fas fa-landmark icon"></i><strong> Main monument: </strong><%= @city.main_monument %>  |  <i class="fas fa-euro-sign icon"></i><strong> Price per day: </strong><%= @city.price %>€</p>
     </div>
   </div>
 
