@@ -36,17 +36,21 @@
 
 <div class = "review_box">
 <div>
-  <ul class ="display-reviews">
+  <div class ="display-reviews">
     <% @reviews.each do |review| %>
-      <li><%= "#{review.user.first_name} #{review.user.last_name}" %></li>
-      <li><%= review.content %></li>
-      <li><%= review.rating %></li>
+      <div class ="name-rating-review">
+        <strong><%= "#{review.user.first_name}"%></strong>
+        <%= "(#{review.rating}/5)" %>
+      </div>
+        <div class ="content-review">
+          <em><%= "#{review.content}" %></em>
+        </div>
     <% end %>
-  </ul>
+  </div>
 
   <% if policy(@city).add_review? %>
     <div class="form-review">
-      <h2>Let a review</h2>
+      <div class ="user-interested">Add a review</div>
         <%= simple_form_for [@city, @review] do |f| %>
           <%= f.input :content %>
           <%= f.input :rating %>

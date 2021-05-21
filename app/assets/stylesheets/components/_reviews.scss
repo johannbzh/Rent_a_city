@@ -1,12 +1,13 @@
 .review_box {
-  padding-left: 150px;
-  padding-right: 150px;
+  padding-left: 100px;
+  padding-right: 510px;
 }
 
 .display-reviews {
-  margin-top: 30px;
+  height: 82px;
+  margin-top: 50px;
+  border-radius: 5px;
 }
-
 
 .form-review {
   padding: 10px 20px;
@@ -14,3 +15,10 @@
   border-radius: 3px;
 }
 
+.name-rating-review {
+  padding: 5px 30px 10px 20px;
+}
+
+.content-review {
+  padding-left: 20px;
+}
