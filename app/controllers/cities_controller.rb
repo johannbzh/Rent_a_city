@@ -10,7 +10,6 @@ class CitiesController < ApplicationController
         lat: city.latitude,
         lng: city.longitude,
         info_window: render_to_string(partial: "info_window", locals: { city: city }),
-        image_url: helpers.asset_url('placeholder')
       }
     end
   end
