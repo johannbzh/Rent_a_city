@@ -1,17 +1,32 @@
 .btn-flat {
   color: white;
-  padding: 8px 24px;
-  border-radius: 4px;
+  padding: 6px 20px;
+  border-radius: 5px;
   background: #dc326b;
+  border: 2px solid #dc326b;
   transition: background 0.3s ease;
 }
 
 .btn-flat:hover {
   background: #c72d61;
+  border: 2px solid #dc326b;
   color: white;
   text-decoration: none;
 }
 
+.btn-flat-clair {
+  color: #dc326b;
+  padding: 6px 20px;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  border: 2px solid #dc326b;
+}
+
+.btn-flat-clair:hover {
+  color:#c72d61;
+  border: 2px solid #c72d61;
+  text-decoration: none;
+}
 
 .btn-nav {
   color: #4A4A4A;

@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
     @booking.city = City.find(params[:city_id])
     @booking.total_price = @booking.city.price * (@booking[:end_date] - @booking[:start_date]).to_i
     if @booking.save
-      redirect_to dashboard_path
+      redirect_to dashboard_path, notice: "You just booked #{@booking.city.name}!"
     else
       render 'city/show'
     end
