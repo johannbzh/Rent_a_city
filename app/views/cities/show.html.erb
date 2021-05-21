@@ -11,7 +11,6 @@
                     data: { confirm: "Are you sure to delete this city?" } %>
       <% end %>
     </div>
-
     <div class ="photo-product-size mt-4 pr-5">
       <%= @city.photos.attached? ? cl_image_tag(@city.photos.first.key) : image_tag('city_background.jpg') %>
     </div>
@@ -34,35 +33,35 @@
   <% end %>
 </div>
 
-<div class = "review_box">
-<div>
-  <div class ="display-reviews">
-    <% @reviews.each do |review| %>
-      <div class ="name-rating-review">
-        <strong><%= "#{review.user.first_name}"%></strong>
-        <%= "(#{review.rating}/5)" %>
-      </div>
-        <div class ="content-review">
-          <em><%= "#{review.content}" %></em>
-        </div>
-    <% end %>
-  </div>
+<div class = "container">
+  <hr>
+  <div class="row">
+    <div class="col-12">
+      <h3 class ="user-interested">Reviews</h3>
+      <% if @city.reviews.empty? %>
+        <small><em class="text-muted">Be the first to post a review!</em></small>
+      <% end %>
 
-  <% if policy(@city).add_review? %>
-    <div class="form-review">
-      <div class ="user-interested">Add a review</div>
-        <%= simple_form_for [@city, @review] do |f| %>
-          <%= f.input :content %>
-          <%= f.input :rating %>
-          <div class="form-actions">
-            <%= f.button :submit, "Submit review", class: "btn btn-flat mt-3" %>
-            <%= link_to "Back", dashboard_path, class: "btn btn-outline-primary mt-3" %>
-          </div>
-        <% end %>
-      </div>
-  <% end %>
+      <% @city.reviews.each do |review| %>
+        <div>
+          <% review.rating.times do %>
+            <i class="fas fa-star fa-star-yellow"></i>
+            <% end %>
+            <p><%= review.user.first_name %> said : <%= review.content %></p>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-12">
+      <% if policy(@city).add_review? %>
+          <%= simple_form_for [@city, @review] do |f| %>
+            <%= f.input :content, placeholder: 'Add your review here...' %>
+            <%= f.input :rating, as: :select, collection: (1..5), required: true, prompt: "What's your rating", id: "form_stars" %>
+            <div class="form-actions">
+              <%= f.button :submit, "Submit review", class: "btn btn-flat mt-3" %>
+              <%= link_to "Back", dashboard_path, class: "btn btn-flat-clair mt-3 " %>
+            </div>
+          <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
-
-
-
