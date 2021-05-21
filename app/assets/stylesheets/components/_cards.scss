@@ -57,15 +57,18 @@
 .card-dashboard {
   overflow: hidden;
   background: white;
+  background-size: cover;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   margin-top: 10px;
   border-radius: 5px;
 }
 
-.card-dashboard > img {
-  height: 200px;
-  width: 350px;
-  object-fit: cover;
+.card-dashboard {
+  img {
+    width: 100%;
+    object-fit: cover;
+    height: 200px;
+  }
 }
 
 .card-product-show {
@@ -170,11 +173,7 @@
   grid-gap: 10px;
 }
 
-.far {
-  color: #dc326b;
-}
-
-.fas {
+.icon {
   color: #dc326b;
 }
 
