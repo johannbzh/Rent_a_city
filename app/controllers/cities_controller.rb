@@ -5,6 +5,14 @@ class CitiesController < ApplicationController
     @cities = policy_scope(City)
     @search = params[:query]
     @cities = City.where(["lower(name) = ? OR lower(country) = ?", @search.downcase, @search.downcase]) if @search.present?
+    @markers = @cities.geocoded.map do |city|
+      {
+        lat: city.latitude,
+        lng: city.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { city: city }),
+        image_url: helpers.asset_url('placeholder')
+      }
+    end
   end
 
   def show

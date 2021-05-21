@@ -8,23 +8,31 @@
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
-      placeholder: "Find a city"
+      placeholder: "Find a city or a country"
     %>
     <%= submit_tag "Search", class: "btn btn-flat" %>
   <% end %>
 </div>
 
-<div class="container cards-city mt-5 mb-5">
-  <% @cities.each do |city| %>
-    <div class="card-product m-3">
-      <%= city.photos.attached? ? cl_image_tag(city.photos.first.key) : image_tag('city_background.jpg') %>
-      <div class="card-product-infos">
-        <h2><%= city.name %></h2>
-        <p><i class="far fa-flag mr-2 icon"></i><%= city.country %><i class="fas fa-euro-sign mr-2 ml-2 icon"></i><%= city.price %></p>
+<div class="d-flex">
+  <div class="container cards-city mt-5 mb-5 col-6">
+    <% @cities.each do |city| %>
+      <div class="card-product m-2">
+        <%= city.photos.attached? ? cl_image_tag(city.photos.first.key) : image_tag('city_background.jpg') %>
+        <div class="card-product-infos">
+          <h2><%= city.name %></h2>
+          <p><i class="far fa-flag mr-2 icon"></i><%= city.country %><i class="fas fa-euro-sign mr-2 ml-2 icon"></i><%= city.price %></p>
+        </div>
+        <div class="reserve-city">
+          <%= link_to "More details", city_path(city), class:"btn-flat-clair" %>
+        </div>
       </div>
-      <div class="reserve-city">
-        <%= link_to "More details", city_path(city), class:"btn-flat-clair" %>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+
+  <div class="col-6 mt-5 mb-5" id="map"
+      style="width: 100%; height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
