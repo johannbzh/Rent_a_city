@@ -54,15 +54,15 @@
   }
 }
 
-.card-my-cities {
+.card-dashboard {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin: 50px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  margin-top: 10px;
   border-radius: 5px;
 }
 
-.card-my-cities > img {
+.card-dashboard > img {
   height: 200px;
   width: 350px;
   object-fit: cover;
@@ -121,13 +121,19 @@
   margin: 0;
 }
 
-.card-my-cities p {
-  font-size: 12px;
+.card-dashboard p {
+  font-size: 14px;
   opacity: .7;
   margin: 0;
 }
 
-.card-my-cities .card-my-cities-infos {
+.card-dashboard-pricing {
+  font-size: 19px;
+  padding: 0px !important;
+  margin:0px;
+}
+
+.card-dashboard .card-dashboard-infos {
   padding: 16px;
   display: flex;
   justify-content: space-between;
@@ -156,6 +162,12 @@
 .reserve-city {
   margin-left: auto;
   margin-right: 20px;
+}
+
+.content-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
 }
 
 .far {
