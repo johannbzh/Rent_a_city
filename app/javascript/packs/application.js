@@ -26,12 +26,12 @@ import { dynamicTabs } from '../components/onglets';
 
 import { initFlatpickr } from '../plugins/flatpickr';
 import { previewImageOnFileSelect } from '../components/photo_preview';
+import { initMapbox } from '../plugins/init_mapbox';
 
 document.addEventListener('turbolinks:load', () => {
   dynamicTabs();
   // Call your functions here, e.g:
   initFlatpickr();
   previewImageOnFileSelect();
+  initMapbox();
 });
-
-
