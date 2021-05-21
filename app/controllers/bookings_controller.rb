@@ -45,13 +45,13 @@ class BookingsController < ApplicationController
   def accept
     @booking.statut = "Accepted"
     @booking.save
-    redirect_to dashboard_path
+    redirect_to dashboard_path(tab: params[:tab])
   end
 
   def decline
     @booking.statut = "Declined"
     @booking.save
-    redirect_to dashboard_path
+    redirect_to dashboard_path(tab: params[:tab])
   end
 
   private

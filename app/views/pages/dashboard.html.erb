@@ -6,12 +6,12 @@
 
 <div class="container-all">
   <div class="container-onglets">
-    <div class="onglets active-tab" data-anim="1">My cities</div>
+    <div class="onglets <%= !params[:tab] ? "active-tab" : "" %>" data-anim="1">My cities</div>
     <div class="onglets" data-anim="2" >My bookings</div>
-    <div class="onglets" data-anim="3" >My requests</div>
+    <div class="onglets <%= params[:tab] == "3" ? "active-tab" : "" %>" data-anim="3" >My requests</div>
   </div>
 
-  <div class="content active-content pb-3" data-anim ="1">
+  <div class="content <%= !params[:tab] ? "active-content" : "inactive-content" %> pb-3" data-anim ="1">
     <div class="content-title">
       <% if current_user.cities.size > 1 %>
         <h3 class="mt-5">I have <%= current_user.cities.size %> cities for rent</h3>
@@ -69,7 +69,7 @@
     </div>
   </div>
 
-  <div class="content inactive-content pb-3" data-anim ="3">
+  <div class="content <%= params[:tab] == "3" ? "active-content" : "inactive-content" %> pb-3" data-anim ="3">
     <div class="content-title">
       <% if current_user.ordered_requests.empty? %>
         <h3 class="mt-5">I have no booking requests at the moment... </h3>
@@ -87,7 +87,7 @@
                     <h5 class="user-interested"><%= request.user.first_name %> is interested</h5>
                     <p> <%= request.start_date %> - <%= request.end_date %> (<%= (request.end_date - request.start_date).to_i %> days)</p>
                     <% if request.statut == "Pending" %>
-                      <h6 class="mb-0"><%= link_to "Accept", accept_booking_path(request) %> <%= link_to "Decline", decline_booking_path(request) %></h6>
+                      <h6 class="mb-0"><%= link_to "Accept", accept_booking_path(request, tab: '3') %> <%= link_to "Decline", decline_booking_path(request, tab: '3') %></h6>
                     <% elsif request.statut == "Accepted"%>
                       <h6 class ="text-success mb-0"><%= request.statut %> <i class="far fa-check-circle"></i></h6>
                     <% else %>
